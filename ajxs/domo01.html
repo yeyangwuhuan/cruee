@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button>点我</button>
+		<div></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			$("button").click(function() {
+				//通過获取对象获得
+				//				$.get("index01.html", function(resp, status, xhr) {
+				//					$("div").html(resp);
+				//				}, "html");
+				//				$("div").load("index01.html"); //直接获取
+				$.ajax({
+					type:"get",
+					url:"index01.html",
+					async:true,
+					success:function(data,status,xhr){
+						$("div").html(data);
+					},
+					complete:function(){
+						alert("执行成功");
+					},
+					error:function(xhr){
+						alert(xhr.status);
+					}
+				});
+			});
+
+		});
+	</script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<button onclick="getHr()">点我</button>
+		<div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		function getHtr() {
+			var xhr;
+			if(window.XMLHttpRequest) {
+				xhr = new XMLHttpRequest;
+			} else {
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			return xhr;
+		}
+
+		function getHr() {
+			var xhr = getHtr(); //xm，获取getHtr（）
+			xhr.onreadystatechange = function() {
+				alert("1")
+				if(xhr.readyState==4&xhr.status==200){
+					alert("ok");
+				document.getElementsByTagName("div")[0].innerHTML = xhr.responseText;
+				}
+			}
+			xhr.open("GET","index01.html",true);
+			xhr.send(); //发送
+		}
+	</script>
+
+</html>
